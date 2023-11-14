@@ -6,7 +6,11 @@ import Layout from "./components/Layout";
 import { useMediaQuery } from "react-responsive";
 
 function App() {
-  return <></>;
+  return (
+    <div>
+      <Layout />
+    </div>
+  );
 }
 
 export default App;
