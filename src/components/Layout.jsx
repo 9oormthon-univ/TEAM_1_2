@@ -12,6 +12,9 @@ const LogoContainer = styled.div`
 `;
 
 const Logo = styled.div`
+  position: relative;
+  margin-bottom: 2rem;
+
   width: 20.875rem;
   height: 11.25rem;
 
@@ -19,7 +22,10 @@ const Logo = styled.div`
 `;
 
 const Title = styled.div`
-  font-family: Noto Serif KR;
+  position: relative;
+  margin-bottom: 1rem;
+
+  font-family: "Noto Serif KR", serif;
   font-size: 3.25rem;
   font-style: normal;
   font-weight: 600;
@@ -27,7 +33,10 @@ const Title = styled.div`
 `;
 
 const Introduce = styled.div`
-  font-family: AppleSDGothicNeoSB00;
+  position: relative;
+  text-align: left;
+
+  font-family: "AppleSDGothicNeoSB00";
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
