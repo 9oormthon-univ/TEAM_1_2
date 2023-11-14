@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { useMediaQuery } from "react-responsive";
+import React from 'react';
+import styled from 'styled-components';
+import { useMediaQuery } from 'react-responsive';
 
 const Container = styled.div`
   display: flex;
@@ -25,7 +25,7 @@ const Title = styled.div`
   position: relative;
   margin-bottom: 1rem;
 
-  font-family: "Noto Serif KR", serif;
+  font-family: 'Noto Serif KR', serif;
   font-size: 3.25rem;
   font-style: normal;
   font-weight: 600;
@@ -36,7 +36,7 @@ const Introduce = styled.div`
   position: relative;
   text-align: left;
 
-  font-family: "AppleSDGothicNeoSB00";
+  font-family: 'AppleSDGothicNeoSB00';
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
