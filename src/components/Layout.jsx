@@ -51,7 +51,7 @@ const Screen = styled.div`
   background-color: #ffffff;
 `;
 
-const AA = styled.div`
+const SetProfile = styled.div`
   position: relative;
   margin-top: 3.5rem;
 
@@ -63,25 +63,29 @@ const AA = styled.div`
   color: #000;
 `;
 
-const BB = styled.div`
+const Pic = styled.div`
   position: relative;
   margin: 4rem auto;
 
-  width: 5.625rem;
-  height: 5.625rem;
+  width: 6rem;
+  height: 6rem;
   background: #d9d9d9;
   border-radius: 5rem;
 `;
 
-const CC = styled.div`
+const ChangePic = styled.div`
   position: relative;
 
   margin-top: -5.3rem;
   margin-left: 4rem;
   margin-bottom: 5rem;
+
+  :hover {
+    cursor: pointer;
+  }
 `;
 
-const DD = styled.div`
+const Input = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -96,7 +100,7 @@ const DD = styled.div`
   font-weight: 400;
 `;
 
-const EE = styled.input`
+const InputField = styled.input`
   position: relative;
   margin-top: 0.5rem;
 
@@ -105,12 +109,22 @@ const EE = styled.input`
   border-radius: 0.25rem;
   color: #000;
   font-family: Inter;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-style: normal;
   font-weight: 400;
 `;
 
-const FF = styled.div`
+const Check = styled.div`
+  position: relative;
+  margin-left: 19rem;
+  margin-top: -2.2rem;
+
+  :hover {
+    cursor: pointer;
+  }
+`;
+
+const Hr = styled.div`
   position: relative;
   margin-top: 0.3rem;
 
@@ -119,15 +133,13 @@ const FF = styled.div`
   background: #8e8c86;
 `;
 
-const GG = styled.div`
+const OkBtn = styled.div`
   position: relative;
   margin-top: 16.5rem;
-`;
 
-const HH = styled.div`
-  position: relative;
-  margin-left: 19rem;
-  margin-top: -2.2rem;
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 function Layout() {
@@ -143,9 +155,9 @@ function Layout() {
         </LogoContainer>
       )}
       <Screen>
-        <AA>프로필 설정</AA>
-        <BB></BB>
-        <CC>
+        <SetProfile>프로필 설정</SetProfile>
+        <Pic></Pic>
+        <ChangePic>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -159,12 +171,12 @@ function Layout() {
               fill="#333333"
             />
           </svg>
-        </CC>
-        <DD>
-          아이디 <EE />
-          <FF />
-        </DD>
-        <HH>
+        </ChangePic>
+        <Input>
+          아이디 <InputField />
+          <Hr />
+        </Input>
+        <Check>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -178,14 +190,14 @@ function Layout() {
               fill-opacity="0.5"
             />
           </svg>
-        </HH>
-        <DD>
-          이름 <EE></EE>
-          <FF />
-        </DD>
-        <GG>
-          <img src="images/Check.png" />
-        </GG>
+        </Check>
+        <Input>
+          이름 <InputField />
+          <Hr />
+        </Input>
+        <OkBtn>
+          <img src="images/OkBtn.png" />
+        </OkBtn>
       </Screen>
     </Container>
   );
