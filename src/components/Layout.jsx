@@ -1,6 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import { useMediaQuery } from "react-responsive";
+import React from 'react';
+import styled from 'styled-components';
+import { useMediaQuery } from 'react-responsive';
+import { Outlet } from 'react-router-dom';
+
+import TabBar from './TabBar';
 
 const Container = styled.div`
   display: flex;
@@ -25,7 +28,7 @@ const Title = styled.div`
   position: relative;
   margin-bottom: 1rem;
 
-  font-family: "Noto Serif KR", serif;
+  font-family: 'Noto Serif KR', serif;
   font-size: 3.25rem;
   font-style: normal;
   font-weight: 600;
@@ -36,7 +39,7 @@ const Introduce = styled.div`
   position: relative;
   text-align: left;
 
-  font-family: "AppleSDGothicNeoSB00";
+  font-family: 'AppleSDGothicNeoSB00';
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
@@ -49,11 +52,22 @@ const Screen = styled.div`
   width: 24.375rem;
   height: 52.75rem;
 
-  background-color: gray;
+  background-color: yellow;
+`;
+
+const Content = styled.div`
+  width: 24.375rem;
+  height: calc(52.75rem - 3.8125rem);
+
+  overflow-y: auto;
+
+  background-color: #cacaca;
 `;
 
 function Layout() {
   const isMobile = useMediaQuery({ maxWidth: 768 });
+
+  console.log('* Layout');
 
   return (
     <Container>
@@ -64,7 +78,12 @@ function Layout() {
           <Introduce>24개의 계절을 나의 입맛에 맞게</Introduce>
         </LogoContainer>
       )}
-      <Screen />
+      <Screen>
+        <Content>
+          <Outlet />
+        </Content>
+        <TabBar />
+      </Screen>
     </Container>
   );
 }
