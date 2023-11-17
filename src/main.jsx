@@ -1,13 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App.jsx';
-import { RecoilRoot } from 'recoil';
+
 import './index.css';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { RecoilRoot } from 'recoil';
+
+import { RouterInfo } from './utils/router/RouterInfo';
+
+const router = createBrowserRouter(RouterInfo);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <RecoilRoot>
     <React.StrictMode>
-      <App />
+      <RouterProvider router={router} />
     </React.StrictMode>
   </RecoilRoot>
-);
+); 

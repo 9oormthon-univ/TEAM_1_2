@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useMediaQuery } from 'react-responsive';
+import { Outlet } from 'react-router-dom';
+
+import TabBar from './TabBar';
 
 const Container = styled.div`
   display: flex;
@@ -48,11 +51,21 @@ const Screen = styled.div`
 
   width: 24.375rem;
   height: 52.75rem;
-  background-color: #ffffff;
+`;
+
+const Content = styled.div`
+  width: 24.375rem;
+  height: calc(52.75rem - 3.8125rem);
+
+  overflow-y: auto;
+
+  background-color: #cacaca;
 `;
 
 function Layout() {
   const isMobile = useMediaQuery({ maxWidth: 768 });
+
+  console.log('* Layout');
 
   return (
     <Container>
@@ -63,7 +76,12 @@ function Layout() {
           <Introduce>24개의 계절을 나의 입맛에 맞게</Introduce>
         </LogoContainer>
       )}
-      <Screen></Screen>
+      <Screen>
+        <Content>
+          <Outlet />
+        </Content>
+        <TabBar />
+      </Screen>
     </Container>
   );
 }
