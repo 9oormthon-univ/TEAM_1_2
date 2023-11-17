@@ -59,7 +59,7 @@ const Content = styled.div`
 
   overflow-y: auto;
 
-  background-color: #cacaca;
+  background-color: #fff;
 `;
 
 function Layout() {
