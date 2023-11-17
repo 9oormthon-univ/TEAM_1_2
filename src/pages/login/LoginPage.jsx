@@ -37,7 +37,7 @@ function LoginPage() {
 
   return (
     <Background>
-      <img src="images/LoginBackground.png" />
+      <img src="images/LoginBackground2.png" />
       <KakaoLoginBtn onClick={handleKakaoLogin}>
         <img src="images/KakaoLoginBtn.png" />
       </KakaoLoginBtn>
