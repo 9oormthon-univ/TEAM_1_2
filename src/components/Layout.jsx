@@ -21,10 +21,10 @@ const Logo = styled.div`
   width: 20.875rem;
   height: 11.25rem;
 
-  background: #8c8c8c;
+  background: #ffffff;
 `;
 
-const Title = styled.div`
+const ServiceName = styled.div`
   position: relative;
   margin-bottom: 1rem;
 
@@ -51,8 +51,6 @@ const Screen = styled.div`
 
   width: 24.375rem;
   height: 52.75rem;
-
-  background-color: yellow;
 `;
 
 const Content = styled.div`
@@ -74,7 +72,7 @@ function Layout() {
       {!isMobile && (
         <LogoContainer>
           <Logo></Logo>
-          <Title>Seasoning(Logo)</Title>
+          <ServiceName>Seasoning(Logo)</ServiceName>
           <Introduce>24개의 계절을 나의 입맛에 맞게</Introduce>
         </LogoContainer>
       )}
