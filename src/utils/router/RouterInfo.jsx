@@ -1,19 +1,19 @@
+import Layout from '@components/common/Layout';
 /* 기본 4개 탭에 대한 페이지 */
-import Layout from '../../components/Layout';
-import HomePage from '../../pages/home/HomePage';
-import CollagePage from '../../pages/collage/CollagePage';
-import FeedPage from '../../pages/feed/FeedPage';
-import FriendsListPage from '../../pages/feed/FriendsListPage';
-import MyPage from '../../pages/mypage/MyPage';
-import EditProfilePage from '../../pages/mypage/EditProfilePage';
+import HomePage from '@pages/home/HomePage';
+import CollagePage from '@pages/collage/CollagePage';
+import FeedPage from '@pages/feed/FeedPage';
+import FriendsListPage from '@pages/feed/FriendsListPage';
+import MyPage from '@pages/mypage/MyPage';
+import EditProfilePage from '@pages/mypage/EditProfilePage';
 /* 소셜 로그인에 대한 페이지 */
-import LoginPage from '../../pages/login/LoginPage';
-import AuthPage from '../../pages/auth/AuthPage';
+import LoginPage from '@pages/login/LoginPage';
+import AuthPage from '@pages/auth/AuthPage';
 /* 기타 페이지 */
-import SearchPage from '../../pages/search/SearchPage';
-import WritePage from '../../pages/write/WritePage';
-import NotificationPage from '../../pages/notification/NotificationPage';
-import ErrorPage from '../../pages/error/ErrorPage';
+import SearchPage from '@pages/search/SearchPage';
+import WritePage from '@pages/write/WritePage';
+import NotificationPage from '@pages/notification/NotificationPage';
+import ErrorPage from '@pages/error/ErrorPage';
 
 export const RouterInfo = [
   {
