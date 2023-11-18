@@ -8,7 +8,6 @@ import MyPage from '@pages/mypage/MyPage';
 import EditProfilePage from '@pages/mypage/EditProfilePage';
 /* 소셜 로그인에 대한 페이지 */
 import LoginPage from '@pages/login/LoginPage';
-import AuthPage from '@pages/auth/AuthPage';
 /* 기타 페이지 */
 import SearchPage from '@pages/search/SearchPage';
 import WritePage from '@pages/write/WritePage';
@@ -20,9 +19,12 @@ import { CollageLoader } from '@utils/api/CollageLoader';
 import { FeedLoader } from '@utils/api/FeedLoader';
 import { FriendsListLoader } from '@utils/api/FriendsListLoader';
 import { LoginLoader } from '@utils/api/LoginLoader';
-import { AuthLoader } from '@utils/api/AuthLoader';
+import { EditProfileLoader } from '@utils/api/EditProfileLoader';
 import { NotificationLoader } from '@utils/api/NotificationLoader';
 import { UserRestrictLoader } from '@utils/api/UserRestrictLoader';
+
+import AuthPage from '@pages/home/AuthPage';
+import { AuthLoader } from '@utils/api/AuthLoader';
 
 export const RouterInfo = [
   {
@@ -36,6 +38,11 @@ export const RouterInfo = [
         path: 'home',
         element: <HomePage />,
         loader: HomeLoader,
+      },
+      {
+        path: 'home/:token',
+        element: <AuthPage />,
+        loader: AuthLoader,
       },
       {
         path: 'collage',
@@ -60,18 +67,13 @@ export const RouterInfo = [
       {
         path: 'mypage/edit',
         element: <EditProfilePage />,
-        loader: UserRestrictLoader,
+        loader: EditProfileLoader,
       },
       /* 소셜 로그인에 대한 페이지 라우팅 */
       {
         path: 'login',
         element: <LoginPage />,
         loader: LoginLoader,
-      },
-      {
-        path: 'auth',
-        element: <AuthPage />,
-        loader: AuthLoader,
       },
       /* 기타 페이지 라우팅 */
       {

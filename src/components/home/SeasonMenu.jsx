@@ -18,7 +18,7 @@ const Square = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-color: gray;
+  background-color: #eeeeee;
 `;
 
 const SeasonMenu = () => {

@@ -1,5 +1,5 @@
 const AuthPage = () => {
-  return <div>로그인 처리 중...</div>;
+  return <>토큰 출력 : {}</>;
 };
 
 export default AuthPage;
