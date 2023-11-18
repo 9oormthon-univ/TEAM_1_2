@@ -21,7 +21,7 @@ const Top = styled.div`
   width: 24.375rem;
   height: 2.5rem;
 
-  background: lightcoral;
+  background: #ffffff;
 `;
 
 const LogoBox = styled.div`
@@ -47,20 +47,30 @@ const NavBox = styled.div`
 const Season = styled.div`
   position: relative;
   display: flex;
+  align-items: center;
 
   width: 24.375rem;
   height: 3.5625rem;
-  background: lightgreen;
+  background: ffffff;
+
+  font-family: Noto Serif KR;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: #333;
 `;
 
 const Fortune = styled.div`
   position: relative;
   display: flex;
+  justify-content: space-around;
   margin: 0.5rem auto;
+  align-items: center;
 
   width: 21.875rem;
   height: 2rem;
-  background: yellow;
+  background: #ffffff;
   border-radius: 1.125rem 1rem 1rem 1.125rem;
   border: 1px solid rgba(202, 202, 202, 0);
 
@@ -100,7 +110,7 @@ const Category = styled.div`
 
   width: 24.375rem;
   height: 4.4375rem;
-  background: green;
+  background: #ffffff;
 `;
 
 const Select = styled.div`
@@ -117,7 +127,7 @@ const ContentBorder = styled.div`
 
   width: 24rem;
   height: 31rem;
-  border: 1px solid #000;
+  //border: 1px solid #000;
 
   font-family: AppleSDGothicNeoR00;
   font-size: 0.875rem;
@@ -229,8 +239,8 @@ const Popup = ({ onClose }) => {
 };
 
 const HomePage = () => {
-  const { response } = useLoaderData();
-  console.log(response);
+  //const { response } = useLoaderData();
+  //console.log(response);
 
   //팝업
   const [showPopup, setShowPopup] = useState(false);
@@ -361,8 +371,51 @@ const HomePage = () => {
         </NavBox>
       </Top>
 
-      <Season></Season>
-      <Fortune onClick={Open}>오늘의 운세</Fortune>
+      <Season>
+        <div style={{ fontSize: '2rem' }}>淸明</div>
+        <div style={{ fontSize: '0.875rem', marginLeft: '1rem' }}>
+          청명, 5번째 절기
+        </div>
+      </Season>
+      <Fortune onClick={Open}>
+        <svg
+          style={{ marginLeft: '-1rem' }}
+          xmlns="http://www.w3.org/2000/svg"
+          width="14"
+          height="14"
+          viewBox="0 0 14 14"
+          fill="none"
+        >
+          <path
+            d="M10.4286 7.57067L10.4286 0.935057L3.79297 0.935059L3.79297 7.57067"
+            stroke="black"
+            stroke-width="0.8"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M10.2949 0.935059L1.61492 9.61506L4.99966 12.9998L9.33966 8.6598L10.4247 7.5748"
+            stroke="black"
+            stroke-width="0.8"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M4.16208 0.935083L12.8421 9.61508L9.45735 12.9998L7.28735 10.8298"
+            stroke="black"
+            stroke-width="0.8"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <div style={{ marginLeft: '-2rem' }}>오늘의 운세</div>
+        <div
+          style={{
+            marginLeft: 'rem',
+            fontSize: '0.75rem',
+            color: '#BFBFBF',
+          }}
+        >
+          11월 18일
+        </div>
+      </Fortune>
       <PopupLayout>{showPopup && <Popup onClose={Close} />}</PopupLayout>
       <Category>
         <Year>2023</Year>

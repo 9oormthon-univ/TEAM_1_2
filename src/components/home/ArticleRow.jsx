@@ -13,7 +13,7 @@ const Thumbnail = styled.div`
   height: 4.375rem;
   border-radius: 0.5rem;
 
-  background-color: gray;
+  background-color: lightgreen;
 `;
 
 const Description = styled.p``;

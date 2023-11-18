@@ -17,6 +17,9 @@ const LogoContainer = styled.div`
 const Logo = styled.div`
   position: relative;
   margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   width: 20.875rem;
   height: 11.25rem;
@@ -71,8 +74,10 @@ function Layout() {
     <Container>
       {!isMobile && (
         <LogoContainer>
-          <Logo></Logo>
-          <ServiceName>Seasoning(Logo)</ServiceName>
+          <Logo>
+            <img src="images/Logo.png" />
+          </Logo>
+          <ServiceName>Seasoning</ServiceName>
           <Introduce>24개의 계절을 나의 입맛에 맞게</Introduce>
         </LogoContainer>
       )}

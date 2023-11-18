@@ -31,7 +31,7 @@ const SeasonBorder = styled.div`
 
   width: 24rem;
   height: 5rem;
-  border: 1px solid #000;
+  // border: 1px solid #000;
 
   color: #000;
   text-align: center;
@@ -49,7 +49,7 @@ const PicBorder = styled.div`
   gap: 1rem;
 
   width: 22rem;
-  border: 1px solid red;
+  //border: 1px solid red;
 `;
 
 const QuestionBorder = styled.div`
@@ -63,7 +63,7 @@ const QuestionBorder = styled.div`
 
   width: 22rem;
   height: auto;
-  border: 1px solid purple;
+  //border: 1px solid purple;
 
   color: #8e8c86;
   font-family: AppleSDGothicNeoR00;
@@ -102,7 +102,7 @@ const ContentBorder = styled.textarea`
 
   width: 22rem;
   height: 17rem;
-  border: 1px solid red;
+  // border: 1px solid red;
   resize: none;
 
   font-family: AppleSDGothicNeoR00;
@@ -129,7 +129,7 @@ const ButtonBorder = styled.div`
 
   width: 24rem;
   height: 2.7rem;
-  border: 1px solid green;
+  // border: 1px solid green;
   background: red;
 
   font-family: AppleSDGothicNeoR00;
@@ -237,7 +237,9 @@ const WritePage = () => {
       {isQuestion && (
         <QuestionBorder ref={questionRef}>
           <Hr id="hrElement"></Hr>
-          <Question>질문입니다요..</Question>
+          <Question>
+            질문입니다요.질문입니다요.질문입니다요.질문입니다요.질문입니다요.질문입니다요.질문입니다요.질문입니다요.질문입니다요.질문입니다요.질문입니다요.질문입니다요.질문입니다요.질문입니다요.질문입니다요.질문입니다요.질문입니다요.질문입니다요.질문입니다요.질문입니다요.질문입니다요.질문입니다요.질문입니다요.질문입니다요.질문입니다요.질문입니다요.질문입니다요.질문입니다요.v.
+          </Question>
         </QuestionBorder>
       )}
 

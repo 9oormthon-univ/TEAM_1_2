@@ -31,7 +31,7 @@ const FeedBorder = styled.div`
 
   width: 24rem;
   height: 39.5rem;
-  border: 1px solid #000;
+  //border: 1px solid #000;
 
   font-family: AppleSDGothicNeoR00;
   font-size: 0.875rem;
@@ -48,7 +48,7 @@ const ContentBorder = styled.div`
 
   width: 23.5rem;
   height: 24rem;
-  border: 1px solid red;
+  // border: 1px solid red;
 
   font-family: AppleSDGothicNeoR00;
   font-size: 0.875rem;
@@ -66,7 +66,7 @@ const ProfileBorder = styled.div`
 
   width: 23rem;
   height: 3.5rem;
-  border: 1px solid blue;
+  //border: 1px solid blue;
 `;
 
 const ProfilePic = styled.div`

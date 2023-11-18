@@ -45,7 +45,7 @@ const Border = styled.div`
 
   width: 22.625rem;
   height: 40.375rem;
-  border: 1px solid #000;
+  //border: 1px solid #000;
 `;
 
 const ProfileBorder = styled.div`
@@ -57,7 +57,7 @@ const ProfileBorder = styled.div`
 
   width: 21.75rem;
   height: 3.75rem;
-  border: 1px solid #000;
+  //border: 1px solid #000;
 `;
 
 const Pic = styled.div`

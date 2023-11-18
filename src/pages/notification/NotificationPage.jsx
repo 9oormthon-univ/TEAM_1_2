@@ -45,7 +45,7 @@ const Border = styled.div`
 
   width: 23.375rem;
   height: 40.375rem;
-  border: 1px solid #000;
+  // border: 1px solid #000;
 `;
 
 const FriendRequest = styled.div`
@@ -57,7 +57,7 @@ const FriendRequest = styled.div`
 
   width: 22.75rem;
   height: 4.25rem;
-  border: 1px solid #000;
+  // border: 1px solid #000;
 `;
 
 const Pic = styled.div`
@@ -116,7 +116,7 @@ const Notification = styled.div`
 
   width: 22.75rem;
   height: 4.25rem;
-  border: 1px solid #000;
+  //border: 1px solid #000;
 `;
 
 const NContent = styled.div`

@@ -35,7 +35,7 @@ export const RouterInfo = [
       {
         path: 'home',
         element: <HomePage />,
-        loader: HomeLoader,
+        //loader: HomeLoader,
       },
       {
         path: 'collage',
@@ -82,7 +82,7 @@ export const RouterInfo = [
       {
         path: 'write',
         element: <WritePage />,
-        loader: UserRestrictLoader,
+        //loader: UserRestrictLoader,
       },
       {
         path: 'notification',

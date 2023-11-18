@@ -20,7 +20,7 @@ const Content = styled.section`
   height: 22.5rem;
   overflow: scroll;
 
-  background-color: blue;
+  background-color: #ffffff;
 `;
 
 const SeasonalContent = () => {
