@@ -67,8 +67,6 @@ const Content = styled.div`
 function Layout() {
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
-  console.log('* Layout');
-
   return (
     <Container>
       {!isMobile && (

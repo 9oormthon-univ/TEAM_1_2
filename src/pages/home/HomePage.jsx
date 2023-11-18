@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { useNavigate, useLocation, Link } from 'react-router-dom';
+import {
+  useNavigate,
+  useLocation,
+  Link,
+  useLoaderData,
+} from 'react-router-dom';
 import axios from 'axios';
 
 import YearlyContent from '@components/home/YearlyContent';
@@ -224,6 +229,9 @@ const Popup = ({ onClose }) => {
 };
 
 const HomePage = () => {
+  const { response } = useLoaderData();
+  console.log(response);
+
   //팝업
   const [showPopup, setShowPopup] = useState(false);
   const Open = () => {

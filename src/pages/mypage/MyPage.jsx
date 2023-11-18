@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 
 const MyProfile = styled.div`
   position: relative;
@@ -52,7 +54,7 @@ const MenuBox = styled.div`
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1);
 `;
 
-const Menu = styled.div`
+const Menu = styled(Link)`
   position: relative;
   display: flex;
   margin: auto;
@@ -70,6 +72,8 @@ const Menu = styled.div`
   :hover {
     cursor: pointer;
   }
+
+  text-decoration: none;
 `;
 
 const Hr = styled.div`
@@ -81,20 +85,9 @@ const Hr = styled.div`
 `;
 
 const MyPage = () => {
-  const [userData, setUserData] = useState({});
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('http://localhost:5173/user/profile');
-        setUserData(response.data);
-      } catch (error) {
-        console.error('Error fetching user profile:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
+  const { response } = useLoaderData();
+  console.log(response.data);
+  const [userData, setUserData] = useState(response.data);
 
   return (
     <>
@@ -104,9 +97,9 @@ const MyPage = () => {
           <br />
           <span
             style={{ fontSize: '0.875rem' }}
-          >{`@${userData.account_id}`}</span>
+          >{`@${userData.accountId}`}</span>
         </PersonalData>
-        <Pic style={{ backgroundImage: `url(${userData.image})` }} />
+        <Pic style={{ backgroundImage: `url(${userData.profileImageUrl})` }} />
       </MyProfile>
       <MenuBox>
         <Menu>
@@ -131,7 +124,7 @@ const MyPage = () => {
           </svg>
         </Menu>
         <Hr></Hr>
-        <Menu>
+        <Menu to="/mypage/edit">
           <div
             style={{
               marginRight: '13rem',

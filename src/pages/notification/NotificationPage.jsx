@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 
 const Back = styled.div`
   position: relative;
@@ -132,24 +133,11 @@ const NContent = styled.div`
 `;
 
 const NotificationPage = () => {
+  const { response } = useLoaderData();
+  console.log(response);
+
   const [Requests, setRequests] = useState([]);
   const [notifications, setNotifications] = useState([]);
-
-  useEffect(() => {
-    const NotificationList = async () => {
-      try {
-        const response = await axios.get('http://localhost:5173/notification');
-        const { friends, general } = response.data;
-
-        setRequests(friends);
-        setNotifications(general);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    NotificationList();
-  }, []);
 
   return (
     <>
