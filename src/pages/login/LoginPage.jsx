@@ -27,12 +27,13 @@ const KakaoLoginBtn = styled.div`
 `;
 
 function LoginPage() {
-  const RestApiKey = 'c574e4572cdf6171c9cb1fe3af45bf75';
-  const RedirectUrl = 'http://localhost:5173/auth';
-  const KakaoAuthUrl = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${RestApiKey}&redirect_uri=${RedirectUrl}`;
+  const CLIENT_ID = 'c574e4572cdf6171c9cb1fe3af45bf75';
+  const REDIRECT_URI = 'https://api.seasoning.today/oauth/kakao/login';
+  // const REDIRECT_URI = 'https://localhost:5173/auth';
+  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}`;
 
   const handleKakaoLogin = () => {
-    window.open(KakaoAuthUrl, '_blank');
+    window.location.href = KAKAO_AUTH_URL;
   };
 
   return (

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useLoaderData, useNavigate, useLocation } from 'react-router-dom';
 
 const Top = styled.div`
   position: relative;
@@ -161,6 +162,9 @@ const data = [
 ];
 
 const FeedPage = () => {
+  const { response } = useLoaderData();
+  console.log(response);
+
   return (
     <>
       <Top>
