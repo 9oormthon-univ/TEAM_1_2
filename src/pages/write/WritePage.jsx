@@ -46,7 +46,7 @@ const ContentBorder = styled.textarea`
   margin: 0.3rem auto;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 1rem 1rem 1rem 1rem;
+  padding: 1rem;
 
   width: 22rem;
   height: 33rem;
