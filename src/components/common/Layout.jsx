@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useMediaQuery } from 'react-responsive';
 import { Outlet } from 'react-router-dom';
 
-import TabBar from './TabBar';
+import TabBar from '@components/common/TabBar';
 
 const Container = styled.div`
   display: flex;
@@ -51,6 +51,8 @@ const Screen = styled.div`
 
   width: 24.375rem;
   height: 52.75rem;
+  border-radius: 1.5rem;
+  overflow: hidden;
 `;
 
 const Content = styled.div`
