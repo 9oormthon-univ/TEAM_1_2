@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 
@@ -40,6 +40,58 @@ const SeasonBorder = styled.div`
   font-weight: 600;
 `;
 
+const PicBorder = styled.div`
+  position: relative;
+  display: flex;
+  margin: 0.3rem auto;
+  overflow-x: auto;
+  padding: 1rem;
+  gap: 1rem;
+
+  width: 22rem;
+  border: 1px solid red;
+`;
+
+const QuestionBorder = styled.div`
+  position: relative;
+  display: flex;
+  margin: 0.3rem auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 1rem;
+  align-items: center;
+
+  width: 22rem;
+  height: auto;
+  border: 1px solid purple;
+
+  color: #8e8c86;
+  font-family: AppleSDGothicNeoR00;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+`;
+
+const Hr = styled.div`
+  position: relative;
+  display: flex;
+  margin-right: 0.5rem;
+
+  background: #919191;
+  width: 0.125rem;
+  height: 0.75rem;
+`;
+
+const Question = styled.div`
+  color: #8e8c86;
+
+  font-family: AppleSDGothicNeoB00;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+`;
+
 const ContentBorder = styled.textarea`
   position: relative;
   display: flex;
@@ -49,7 +101,7 @@ const ContentBorder = styled.textarea`
   padding: 1rem;
 
   width: 22rem;
-  height: 33rem;
+  height: 17rem;
   border: 1px solid red;
   resize: none;
 
@@ -69,7 +121,7 @@ const Chatbubble = styled.div`
 
 const ButtonBorder = styled.div`
   position: relative;
-  margin: 0.2rem auto;
+
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -78,6 +130,7 @@ const ButtonBorder = styled.div`
   width: 24rem;
   height: 2.7rem;
   border: 1px solid green;
+  background: red;
 
   font-family: AppleSDGothicNeoR00;
   font-size: 0.875rem;
@@ -89,23 +142,55 @@ const ButtonBorder = styled.div`
 const data = [];
 
 const WritePage = () => {
-  const [selectedImages, setSelectedImages] = useState([]);
+  const [uploadedImages, setUploadedImages] = useState([]);
+  const isPicture = uploadedImages.length > 0;
+  const [isQuestion, setIsQuestion] = useState(false);
+  const [textareaContent, setTextareaContent] = useState('');
 
   const handleImageUpload = (event) => {
     const files = event.target.files;
 
     if (files.length > 0) {
-      const updatedImages = [...selectedImages];
-
-      for (const file of files) {
-        const imageUrl = URL.createObjectURL(file);
-        updatedImages.push(imageUrl);
-      }
-
-      console.log(updatedImages);
-
-      setSelectedImages(updatedImages);
+      const newImages = Array.from(files).map((file) => {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          setUploadedImages((prevImages) => [...prevImages, reader.result]);
+        };
+        reader.readAsDataURL(file);
+        return file;
+      });
     }
+  };
+
+  const questionRef = useRef(null);
+
+  useEffect(() => {
+    const hrElement = document.getElementById('hrElement');
+
+    if (questionRef.current && hrElement) {
+      const questionHeight = questionRef.current.getBoundingClientRect().height;
+      hrElement.style.height = `${questionHeight}px`;
+    }
+  }, [isQuestion]);
+
+  useEffect(() => {
+    // Retrieve stored state from localStorage
+    const storedImages =
+      JSON.parse(localStorage.getItem('uploadedImages')) || [];
+    const storedQuestion =
+      JSON.parse(localStorage.getItem('isQuestion')) || false;
+    const storedTextareaContent = localStorage.getItem('textareaContent') || '';
+
+    setUploadedImages(storedImages);
+    setIsQuestion(storedQuestion);
+    setTextareaContent(storedTextareaContent);
+  }, []); // Empty dependency array ensures this effect runs once when the component mounts
+
+  const handleSave = () => {
+    // Save state to localStorage
+    localStorage.setItem('uploadedImages', JSON.stringify(uploadedImages));
+    localStorage.setItem('isQuestion', JSON.stringify(isQuestion));
+    localStorage.setItem('textareaContent', textareaContent);
   };
 
   return (
@@ -124,26 +209,39 @@ const WritePage = () => {
             fill="black"
           />
         </svg>
-        <div style={{ marginRight: '1rem' }}>저장</div>
+        <div
+          className="save"
+          style={{ marginRight: '1rem' }}
+          onClick={handleSave}
+        >
+          저장
+        </div>
       </Top>
       <SeasonBorder>
         <span style={{ fontSize: '2rem' }}>立春</span>
         <span style={{ fontSize: '0.9375rem' }}>입춘</span>
       </SeasonBorder>
-      <ContentBorder placeholder="입춘은 봄의 시작입니다. 이번 봄, 당신은 어떤것을 시작하셨나요? 시작할 때의 마음은 어떠셨나요?">
-        {selectedImages.map((image, index) => (
-          <img
-            key={index}
-            src={image}
-            alt={`Uploaded ${index + 1}`}
-            style={{
-              width: '100%', // Adjusted width
-              height: 'auto', // Maintain aspect ratio
-              marginBottom: '1rem',
-            }}
-          />
-        ))}
-      </ContentBorder>
+      {isPicture && (
+        <PicBorder>
+          {' '}
+          {uploadedImages.map((image, index) => (
+            <img
+              key={index}
+              src={image}
+              alt={`Uploaded ${index + 1}`}
+              style={{ width: '100%', height: '100%' }}
+            />
+          ))}
+        </PicBorder>
+      )}
+      {isQuestion && (
+        <QuestionBorder ref={questionRef}>
+          <Hr id="hrElement"></Hr>
+          <Question>질문입니다요..</Question>
+        </QuestionBorder>
+      )}
+
+      <ContentBorder placeholder="입춘은 봄의 시작입니다. 이번 봄, 당신은 어떤 것을 시작하셨나요? 시작할 때의 마음은 어떠셨나요?"></ContentBorder>
       <Chatbubble>
         <img
           src="images/ChatBubble.png"
@@ -189,6 +287,7 @@ const WritePage = () => {
           />
         </svg>
         <svg
+          onClick={() => setIsQuestion(!isQuestion)}
           className="addQ"
           style={{ marginLeft: '1rem' }}
           xmlns="http://www.w3.org/2000/svg"
