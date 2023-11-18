@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useMediaQuery } from 'react-responsive';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 
 import TabBar from '@components/common/TabBar';
 
@@ -66,6 +66,8 @@ const Content = styled.div`
 
 function Layout() {
   const isMobile = useMediaQuery({ maxWidth: 768 });
+  const location = useLocation();
+  console.log(location.pathname);
 
   return (
     <Container>
@@ -80,7 +82,8 @@ function Layout() {
         <Content>
           <Outlet />
         </Content>
-        <TabBar />
+
+        {location.pathname !== '/write' && <TabBar />}
       </Screen>
     </Container>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useEffect, useState } from 'react';
 
 const Background = styled.div`
   position: relative;
@@ -8,6 +9,8 @@ const Background = styled.div`
     width: 24.375rem;
     height: 52.75rem;
   }
+
+  overflow: hidden;
 `;
 
 const KakaoLoginBtn = styled.div`
@@ -27,10 +30,7 @@ const KakaoLoginBtn = styled.div`
 `;
 
 function LoginPage() {
-  const CLIENT_ID = 'c574e4572cdf6171c9cb1fe3af45bf75';
-  const REDIRECT_URI = 'https://api.seasoning.today/oauth/kakao/login';
-  // const REDIRECT_URI = 'https://localhost:5173/auth';
-  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}`;
+  const KAKAO_AUTH_URL = `https://api.seasoning.today/kakao/login`;
 
   const handleKakaoLogin = () => {
     window.location.href = KAKAO_AUTH_URL;

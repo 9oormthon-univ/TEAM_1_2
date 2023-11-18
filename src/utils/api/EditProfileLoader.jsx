@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { redirect } from 'react-router-dom';
 
-export const FriendsListLoader = async ({ request, params }) => {
+export const EditProfileLoader = async ({ request, params }) => {
+  // console.log('token: ', getCookie('Authorization'));
+
   /* (공통 로직) localStorage에 “access_token” 이 존재하지 않는 경우 처리 */
   // const access_token = localStorage.getItem('access_token');
   // if (access_token === null) {
@@ -10,7 +12,7 @@ export const FriendsListLoader = async ({ request, params }) => {
   // }
 
   try {
-    const response = await axios.get(`/api/friend/list`, {
+    const response = await axios.get(`/api/user/profile`, {
       // headers: { Authorization: `Bearer ${access_token}` },
     });
     return { response };
