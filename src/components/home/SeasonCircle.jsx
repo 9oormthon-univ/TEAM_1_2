@@ -11,7 +11,11 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
 
+<<<<<<< HEAD
   background-color: lightgreen;
+=======
+  background-color: #eeeeee;
+>>>>>>> 22bbccbb05719f15e2e39e5457f3527098f41126
 `;
 
 const SeasonCircle = () => {

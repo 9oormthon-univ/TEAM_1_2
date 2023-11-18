@@ -20,7 +20,11 @@ const Content = styled.section`
   height: 22.5rem;
   overflow: scroll;
 
+<<<<<<< HEAD
   background-color: #ffffff;
+=======
+  background-color: white;
+>>>>>>> 22bbccbb05719f15e2e39e5457f3527098f41126
 `;
 
 const SeasonalContent = () => {
