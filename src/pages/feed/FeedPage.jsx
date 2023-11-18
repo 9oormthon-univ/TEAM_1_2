@@ -190,7 +190,7 @@ const FeedPage = () => {
       <FeedBorder>
         <ContentBorder>
           <ProfileBorder>
-            <ProfilePic>{data[0].profile.image}</ProfilePic>
+            <ProfilePic>{data[1].profile.image}</ProfilePic>
             <PersonalData>
               <span style={{ fontSize: '0.875rem', color: '#333' }}>
                 {data[1].profile.nickname}
