@@ -99,26 +99,33 @@ const PersonalData = styled.div`
 
 const SearchPage = () => {
   const [searchResult, setSearchResult] = useState([]);
-  const [searchID, setSearchID] = useState('');
+  const [keyword, setKeyword] = useState('');
+
+  const access_token = localStorage.getItem('access_token');
 
   const handleChange = (event) => {
-    setSearchID(event.target.value);
+    setKeyword(event.target.value);
   };
 
   const handleSearch = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5173/friend/search?keyword=${searchID}`
+        `/api/friend/search?keyword=${keyword}`,
+        {
+          headers: { Authorization: `Bearer ${access_token}` },
+        }
       );
       if (response.status === 200) {
-        setSearchResult(response.data);
+        setSearchResult([response.data]);
       } else if (response.status === 404) {
         setSearchResult([]);
       } else {
-        console.error('Unexpected response:', response);
+        setSearchResult([]);
+        // console.error('Unexpected response:', response);
       }
     } catch (error) {
-      console.error('Error fetching search results:', error);
+      setSearchResult([]);
+      // console.error('Error fetching search results:', error);
     }
   };
 
@@ -141,7 +148,7 @@ const SearchPage = () => {
 
   useEffect(() => {
     handleSearch();
-  }, [searchID]);
+  }, [keyword]);
 
   return (
     <>
@@ -164,23 +171,23 @@ const SearchPage = () => {
         </Back>
         <SearchField
           placeholder={'아이디로 친구를 검색하세요.'}
-          value={searchID}
+          value={keyword}
           onChange={handleChange}
         />
       </Top>
       <Hr />
       <Border>
-        {searchResult.map((result) => (
-          <ProfileBorder>
+        {searchResult.map((result, idx) => (
+          <ProfileBorder key={idx}>
             <Pic style={{ backgroundImage: `url(${result.image})` }} />
             <PersonalData>
               <span style={{ fontSize: '0.875rem', color: '#333' }}>
-                {`@${result.nickname}`}
+                {`${result.nickname}`}
               </span>
               <br />
               <span style={{ fontSize: '0.75rem', color: '#C3C3C3' }}>
-                {`@${result.account_id}`} -{' '}
-                {renderFriendshipStatus(result.friendship_status)}
+                {`@${result.accountId}`} -{' '}
+                {renderFriendshipStatus(result.friendshipStatus)}
               </span>
             </PersonalData>
           </ProfileBorder>
