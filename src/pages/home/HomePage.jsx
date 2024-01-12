@@ -14,7 +14,6 @@ import TabBar from '@components/common/TabBar';
 
 import logo from '@assets/components/topbar/logo.png';
 import arrow_svg from '@assets/arrowSvg.png';
-import mockscreen_home from '@assets/mockscreen_home.png';
 
 const Top = styled.div`
   position: relative;
@@ -209,8 +208,6 @@ const ContentArea = styled.div`
   font-style: normal;
   font-weight: 400;
   color: black;
-
-  background-color: green;
 `;
 
 // 여기서부터 운세 팝업창
@@ -358,29 +355,6 @@ const HomePage = () => {
     setSelectedCategory(newCategory);
     navigate(`/home?category=${newCategory}`);
   };
-
-  // return (
-  //   <>
-  //     <div
-  //       style={
-  //         {
-  //           // display: 'flex',
-  //           // 'justify-content': 'center',
-  //           // 'align-items': 'center',
-  //         }
-  //       }
-  //     >
-  //       <img
-  //         src={mockscreen_home}
-  //         style={{
-  //           'object-fit': 'contain',
-  //           width: '100%',
-  //           height: '100%',
-  //         }}
-  //       />
-  //     </div>
-  //   </>
-  // );
 
   return (
     <>
